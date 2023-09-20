@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-google_cloud_secret_manager
-Version  : 2.16.3
-Release  : 11
-URL      : https://files.pythonhosted.org/packages/79/0f/ba6d647df0ce4675b8786be34f564a8d095e307ef6c7cae8e0a2cefbc11b/google-cloud-secret-manager-2.16.3.tar.gz
-Source0  : https://files.pythonhosted.org/packages/79/0f/ba6d647df0ce4675b8786be34f564a8d095e307ef6c7cae8e0a2cefbc11b/google-cloud-secret-manager-2.16.3.tar.gz
+Version  : 2.16.4
+Release  : 12
+URL      : https://files.pythonhosted.org/packages/41/08/f344ff8d7a230f42f5374d25944642999c3e6d8ba13025e9fc7e79c5d95b/google-cloud-secret-manager-2.16.4.tar.gz
+Source0  : https://files.pythonhosted.org/packages/41/08/f344ff8d7a230f42f5374d25944642999c3e6d8ba13025e9fc7e79c5d95b/google-cloud-secret-manager-2.16.4.tar.gz
 Summary  : Google Cloud Secret Manager API client library
 Group    : Development/Tools
 License  : Apache-2.0
@@ -56,10 +56,10 @@ python3 components for the pypi-google_cloud_secret_manager package.
 
 
 %prep
-%setup -q -n google-cloud-secret-manager-2.16.3
-cd %{_builddir}/google-cloud-secret-manager-2.16.3
+%setup -q -n google-cloud-secret-manager-2.16.4
+cd %{_builddir}/google-cloud-secret-manager-2.16.4
 pushd ..
-cp -a google-cloud-secret-manager-2.16.3 buildavx2
+cp -a google-cloud-secret-manager-2.16.4 buildavx2
 popd
 
 %build
@@ -67,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1691175783
+export SOURCE_DATE_EPOCH=1695171135
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

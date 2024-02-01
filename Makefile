@@ -1,5 +1,5 @@
 PKG_NAME := pypi-google_cloud_secret_manager
-URL = https://files.pythonhosted.org/packages/36/63/093608cf497a744a3a86a9d53258fbf553d84865397c7ed8dc50809aaa3e/google-cloud-secret-manager-2.17.0.tar.gz
+URL = https://files.pythonhosted.org/packages/50/f3/c08151cb660637952f5562551c0b325b969515888620d887a77fdbab9659/google-cloud-secret-manager-2.18.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

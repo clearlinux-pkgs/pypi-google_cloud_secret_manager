@@ -6,10 +6,10 @@
 # autospec commit: da8b975
 #
 Name     : pypi-google_cloud_secret_manager
-Version  : 2.18.1
-Release  : 17
-URL      : https://files.pythonhosted.org/packages/93/91/c3c38e00726e9a7b3b6c77b22accab601f9f7a11306b97757796264b896c/google-cloud-secret-manager-2.18.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/93/91/c3c38e00726e9a7b3b6c77b22accab601f9f7a11306b97757796264b896c/google-cloud-secret-manager-2.18.1.tar.gz
+Version  : 2.18.2
+Release  : 18
+URL      : https://files.pythonhosted.org/packages/9d/64/b16b8daddbc3cf4772487aa2d5be530bd9971524f177428b7168364be328/google-cloud-secret-manager-2.18.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/9d/64/b16b8daddbc3cf4772487aa2d5be530bd9971524f177428b7168364be328/google-cloud-secret-manager-2.18.2.tar.gz
 Summary  : Google Cloud Secret Manager API client library
 Group    : Development/Tools
 License  : Apache-2.0
@@ -59,13 +59,10 @@ python3 components for the pypi-google_cloud_secret_manager package.
 
 
 %prep
-%setup -q -n google-cloud-secret-manager-2.18.1
-cd %{_builddir}/google-cloud-secret-manager-2.18.1
+%setup -q -n google-cloud-secret-manager-2.18.2
+cd %{_builddir}/google-cloud-secret-manager-2.18.2
 pushd ..
-cp -a google-cloud-secret-manager-2.18.1 buildavx2
-popd
-pushd ..
-cp -a google-cloud-secret-manager-2.18.1 buildapx
+cp -a google-cloud-secret-manager-2.18.2 buildavx2
 popd
 
 %build
@@ -73,7 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1707406355
+export SOURCE_DATE_EPOCH=1708704446
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -96,16 +93,6 @@ CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -march=x86-64-v3 "
-LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -march=x86-64-v3 "
-python3 setup.py build
-
-popd
-pushd ../buildapx/
-CC=gcc-14
-CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -march=x86-64-v3 -mapxf -mavx10.1 -Wl,-z,x86-64-v3 "
-CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -march=x86-64-v3 -mapxf -mavx10.1 -Wl,-z,x86-64-v3 "
-FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -march=x86-64-v3 -mapxf -mavx10.1 "
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -march=x86-64-v3 "
 python3 setup.py build
 
@@ -141,17 +128,7 @@ FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -march=x86-64-v3 "
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -march=x86-64-v3 "
 python3 -tt setup.py build install --root=%{buildroot}-v3
 popd
-pushd ../buildapx/
-CC=gcc-14
-CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -march=x86-64-v3 -mapxf -mavx10.1 -Wl,-z,x86-64-v3 "
-CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -march=x86-64-v3 -mapxf -mavx10.1 -Wl,-z,x86-64-v3 "
-FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -march=x86-64-v3 -mapxf -mavx10.1 "
-LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -march=x86-64-v3 "
-python3 -tt setup.py build install --root=%{buildroot}-va
-popd
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
-/usr/bin/elf-move.py apx %{buildroot}-va %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)

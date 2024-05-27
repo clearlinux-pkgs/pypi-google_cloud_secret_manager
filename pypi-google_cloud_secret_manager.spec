@@ -7,7 +7,7 @@
 #
 Name     : pypi-google_cloud_secret_manager
 Version  : 2.20.0
-Release  : 21
+Release  : 22
 URL      : https://files.pythonhosted.org/packages/85/41/d016e4de51db91e3c9abd952ff52cfee580abef3dcb91e590d41a6e1b883/google-cloud-secret-manager-2.20.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/85/41/d016e4de51db91e3c9abd952ff52cfee580abef3dcb91e590d41a6e1b883/google-cloud-secret-manager-2.20.0.tar.gz
 Summary  : Google Cloud Secret Manager API client library
@@ -70,7 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1713806867
+export SOURCE_DATE_EPOCH=1716834046
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -86,6 +86,7 @@ FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
+pypi-dep-fix.py . protobuf
 python3 setup.py build
 
 pushd ../buildavx2/
@@ -94,6 +95,7 @@ CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -march=x86-64-v3 "
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -march=x86-64-v3 "
+pypi-dep-fix.py . protobuf
 python3 setup.py build
 
 popd
@@ -117,6 +119,7 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-google_cloud_secret_manager
 cp %{_builddir}/google-cloud-secret-manager-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-google_cloud_secret_manager/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
 python3 -tt setup.py build  install --root=%{buildroot}
+pypi-dep-fix.py %{buildroot} protobuf
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----

@@ -7,7 +7,7 @@
 #
 Name     : pypi-google_cloud_secret_manager
 Version  : 2.23.0
-Release  : 30
+Release  : 31
 URL      : https://files.pythonhosted.org/packages/63/a4/eebd85bf4a02371eaa2305f121411336cd5d559653adc162adfcc594c475/google_cloud_secret_manager-2.23.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/63/a4/eebd85bf4a02371eaa2305f121411336cd5d559653adc162adfcc594c475/google_cloud_secret_manager-2.23.0.tar.gz
 Summary  : Google Cloud Secret Manager API client library
